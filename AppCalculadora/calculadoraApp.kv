@@ -1,0 +1,295 @@
+<MudancaDeTelas>:
+    TelaInicial:
+    FuncaoAfim:
+    FuncaoQuadratica:
+    FuncaoExponencial:
+    FuncaoLogaritmica:
+    FuncaoSeno:
+    FuncaoCosseno:
+    TelaAjuda:
+
+<TelaInicial>:
+    name: 'telaInicial'
+    FloatLayout:
+        orientation: 'vertical'
+        
+        Label: #Rotulo 1
+            text: 'CALCULADORA DE AREA SOB CURVA'
+            font_size: '20'
+            size_hint: (.1,.1)
+            pos: (180,550)
+            
+        Label: #Rotulo 2
+            text: 'MENU'
+            font_size: '40'
+            size_hint: (.1,.1)
+            pos: (180,490)
+            
+        Label: #Rotulo 3
+            text: 'Escolha um tipo de funcao:'
+            font_size: '20'
+            size_hint: (.1,.1)
+            pos: (180,450)
+            
+        Button: #Botao afim
+            size_hint:(.3,.1)
+            pos:(40,375)
+            on_release: app.root.mudar_para_funcaoAfim()
+            text: 'Afim'
+            font_size: '20'
+            
+        Button: #Botao quadratica
+            size_hint:(.3,.1)
+            pos:(240,375)
+            on_release: app.root.mudar_para_funcaoQuadratica()
+            text: 'Quadratica'
+            font_size: '20'
+            
+        Button: #Botao exponencial
+            size_hint:(.3,.1)
+            pos:(40,300)
+            on_release: app.root.mudar_para_funcaoExponencial()
+            text: 'Exponencial'
+            font_size: '20'
+            
+        Button: #Botao logaritmica
+            size_hint:(.3,.1)
+            pos:(240,300)
+            on_release: app.root.mudar_para_funcaoLogaritmica()
+            text: 'Logaritmica'
+            font_size: '20'
+            
+        Button: #Botao seno
+            size_hint:(.3,.1)
+            pos:(40,225)
+            on_release: app.root.mudar_para_funcaoSeno()
+            text: 'Seno'
+            font_size: '20'
+            
+        Button: #Botao cosseno
+            size_hint:(.3,.1)
+            pos:(240,225)
+            on_release: app.root.mudar_para_funcaoCosseno()
+            text: 'Cosseno'
+            font_size: '20'
+
+        Button: #Botao ajuda
+            size_hint:(.3,.1)
+            pos:(40,75)
+            on_release: app.root.mudar_para_ajuda()
+            text: 'Ajuda'
+            font_size: '20'
+            
+        Button: #Botao sair
+            size_hint:(.3,.1)
+            pos:(240,75)
+            on_release: app.stop()
+            text: 'Sair'
+            font_size: '20'
+            
+
+<FuncaoAfim>:
+    name:'funcaoAfim'
+    FloatLayout:
+        orientation:'vertical'
+
+        Label:
+            text: 'FUNCAO AFIM'
+            font_size: '40'
+            size_hint: (.1,.1)
+            pos: (180,535)
+
+        Image:
+            source: 'funcaoAfim.png'
+            size_hint_x: None
+            size_hint_y: None
+            width: 300
+            height: 150
+            pos: (50, 420)
+
+        Label:
+            text: 'a: coeficiente angular (!= 0)\nb: coeficiente linear\nn: tamanho da base dos retangulos (n>0)\nlim.inf e lim.sup.: limites de integracao\n(lim.inf != lim.sup e lim.inf < lim.sup)'
+            font_size: '12'
+            size_hint: (.1, .1)
+            pos: (180, 380)
+
+        Label:
+            text: 'a:'
+            font_size: '20'
+            size_hint: (.1, .1)
+            pos: (35, 310)
+
+        TextInput:
+            id: tx_a_afim
+            size_hint: (None, None)
+            width: 45
+            height: 35
+            hint_text: ''
+            multiline: False
+            pos: (70, 320)
+
+        Label:
+            text: 'b:'
+            font_size: 20
+            size_hint: (.1, .1)
+            pos: (35, 245)
+
+        TextInput:
+            id: tx_b_afim
+            size_hint: (None, None)
+            width: 45
+            height: 35
+            hint_text: ''
+            mutiline: False
+            pos: (70, 260)
+
+        Label:
+            text: 'Lim.inf'
+            font_size: 20
+            size_hint: (.1, .1)
+            pos: (260, 310)
+            
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3,.1)
+            pos: (240,75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
+
+<TelaAjuda>:
+    name:'telaAjuda'
+    FloatLayout:
+        orientation:'vertical'
+
+        Label:
+            text:'AJUDA'
+            font_size:'40'
+            size_hint: (.1,.1)
+            pos: (180,535)
+
+        Label:
+            text:'-> Insira nos campos "a", "b", "c" \ne "d" os coeficientes da funcao f(x).\n\n-> Insira nos campos "lim. inf." e\n "lim. sup." os limites de integracao.\n\n -> Insira no campo "n" o valor da \nbase dos retangulos da Soma \nde Riemann.\n\n-> Clique em "Calcular" p/ exibir os \n resultados e plotar o grafico.'
+            font_size:'20'
+            size_hint:(.1,.1)
+            pos: (180, 330)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3,.1)
+            pos: (240,75)
+            font_size: '20'
+            
+<FuncaoQuadratica>:
+    name: 'funcaoQuadratica'
+    FloatLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: 'FUNCAO QUADRATICA'
+            font_size: '30'
+            size_hint: (.1, .1)
+            pos: (180, 535)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3,.1)
+            pos: (240,75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
+
+<FuncaoExponencial>:
+    name: 'funcaoExponencial'
+    FloatLayout:
+        oritentation: 'vertical'
+
+        Label:
+            text: 'FUNCAO EXPONENCIAL'
+            font_size: '30'
+            size_hint: (.1, .1)
+            pos: (180, 535)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3, .1)
+            pos: (240, 75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
+            
+<FuncaoLogaritmica>:
+    name: 'funcaoLogaritmica'
+    FloatLayout:
+        oritentation: 'vertical'
+
+        Label:
+            text: 'FUNCAO LOGARITMICA'
+            font_size: '30'
+            size_hint: (.1, .1)
+            pos: (180, 535)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3, .1)
+            pos: (240, 75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
+
+<FuncaoSeno>:
+    name: 'funcaoSeno'
+    FloatLayout:
+        oritentation: 'vertical'
+
+        Label:
+            text: 'FUNCAO SENO'
+            font_size: '30'
+            size_hint: (.1, .1)
+            pos: (180, 535)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3, .1)
+            pos: (240, 75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
+
+<FuncaoCosseno>:
+    name: 'funcaoCosseno'
+    FloatLayout:
+        oritentation: 'vertical'
+
+        Label:
+            text: 'FUNCAO COSSENO'
+            font_size: '30'
+            size_hint: (.1, .1)
+            pos: (180, 535)
+
+        Button:
+            on_release: app.root.mudar_para_telaInicial()
+            text: 'Voltar'
+            size_hint: (.3, .1)
+            pos: (240, 75)
+
+        Button:
+            text: 'Calcular'
+            size_hint: (.3, .1)
+            pos: (40, 75)
